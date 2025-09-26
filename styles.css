@@ -61,7 +61,7 @@ body {
 /* Header */
 .header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     padding: 2rem 0;
 }
 
@@ -122,11 +122,13 @@ body {
 }
 
 .hero h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     font-weight: 700;
     margin-bottom: 1rem;
     position: relative;
     z-index: 2;
+    word-break: break-word;
+    hyphens: auto;
 }
 
 .hero-text {
@@ -296,13 +298,11 @@ body {
         font-size: 2.5rem;
     }
 
-    .hero h2 {
-        font-size: 2rem;
-    }
-
     .hero-text {
         font-size: 1.1rem;
     }
+
+    /* O h2 agora usa clamp, mas mantemos um valor mínimo para mobile */
 
     .links-grid {
         grid-template-columns: 1fr;
@@ -321,11 +321,42 @@ body {
         max-width: 100%;
         width: 100%;
     }
+
+    /* Esconder contador de visitas em mobile para limpar interface */
+    .visit-counter {
+        display: none;
+    }
+
+    /* Ajustar partículas em mobile */
+    .particles-container {
+        opacity: 0.7;
+    }
+}
+
+/* Media query para tablets (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .links-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .logo {
+        font-size: 3.5rem;
+    }
 }
 
 @media (max-width: 480px) {
     .hero {
         padding: 1.5rem;
+    }
+
+    .hero-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
     }
 
     .about-text {
@@ -334,5 +365,11 @@ body {
 
     .social-links h3 {
         font-size: 1.3rem;
+    }
+
+    /* Ajustes adicionais para telas muito pequenas */
+    .hero h2 {
+        font-size: clamp(1.3rem, 6vw, 2rem);
+        line-height: 1.2;
     }
 }

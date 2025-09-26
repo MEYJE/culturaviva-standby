@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+# Sitemap: https://seu-dominio.com/sitemap.xml
+
+# Bloquear arquivos desnecessários
+Disallow: /node_modules/
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.git/
+Disallow: /README.md
